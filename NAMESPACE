@@ -3,5 +3,6 @@
 export(filter_region)
 export(fix_encoding)
 export(hallintoaluekey)
+export(plot_beveridge_curve)
 export(randomize_na)
 export(recover_na)

@@ -10,6 +10,8 @@ A data frame
 \item{Avoimet_tyopaikat}{}
 \item{Tyovoima}{}
 \item{Tyottomat}{}
+\item{time}{}
+\item{kunta}{}
 }
 }
 \source{
