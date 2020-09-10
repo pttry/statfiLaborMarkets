@@ -21,5 +21,7 @@ data <- data %>%
 data_kunta_1001 <- filter_region(data, "kunta")
 data_seutukunta_1001 <- filter_region(data, "seutukunta")
 data_maakunta_1001 <- filter_region(data, "maakunta")
+data_kokomaa_1001 <- filter_region(data, "koko maa")
 
-usethis::use_data(data_kunta_1001, data_seutukunta_1001, data_maakunta_1001, overwrite = TRUE)
+usethis::use_data(data_kunta_1001, data_seutukunta_1001, data_maakunta_1001, data_kokomaa_1001,
+                  overwrite = TRUE)
