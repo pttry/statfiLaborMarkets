@@ -14,14 +14,17 @@ filter_region <- function(data, region) {
       select(-Alue)
   } else if (region == "seutukunta") {
     output <- filter(data, grepl("SK", Alue))  %>%
-      mutate(seutukunta_koodi = substring(Alue, 3,5),
-             seutukunta = substring(Alue, 7)) %>%
-      select(-Alue, -seutukunta_koodi)
+              mutate(seutukunta_koodi = substring(Alue, 3,5),
+                     seutukunta = substring(Alue, 7)) %>%
+              select(-Alue, -seutukunta_koodi)
   } else if (region == "maakunta") {
     output <- filter(data, grepl("MK", Alue)) %>%
-      mutate(maakunta_koodi = substring(Alue, 3,4),
-             maakunta = substring(Alue, 6)) %>%
-      select(-Alue, -maakunta_koodi)
+              mutate(maakunta_koodi = substring(Alue, 3,4),
+                     maakunta = substring(Alue, 6)) %>%
+              select(-Alue, -maakunta_koodi)
+  } else if (region %in% c("koko maa", "KOKO MAA")) {
+      output <- filter(data, grepl("KOKO MAA", Alue)) %>%
+                select(-Alue)
   } else {stop("Input region not applicable.")}
   output
 }
