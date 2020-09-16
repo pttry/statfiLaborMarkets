@@ -8,6 +8,8 @@
 #' @return
 #' @export
 #'
+#' @import statfitools
+#'
 #' @examples
 plot_beveridge_curve <- function(df,
                                  series_type = "trend",
