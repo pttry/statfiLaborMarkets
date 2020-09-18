@@ -18,7 +18,7 @@ plot_beveridge_curve <- function(df,
 
   if(number_type == "relative") {
     df$x <- df$Tyottomat / df$Tyovoima
-    df$y <- df$Avoimet_tyopaikat / (df$Tyovoima - df$Tyottomat)
+    df$y <- df$Avoimet_tyopaikat / (df$Avoimet_tyopaikat + df$Tyovoima - df$Tyottomat)
   } else {
     df$x <- df$Tyottomat
     df$y <- df$Avoimet_tyopaikat
