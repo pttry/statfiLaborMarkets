@@ -1,5 +1,10 @@
 ## code to prepare `data_kunta_1001`, 'data_seutukunta_1001', data_maakunta_1001', 'data_kokomaa_1001' dataset goes here
 
+library(statfiLaborMarkets)
+library(statfitools)
+library(tidyverse)
+library(pxweb)
+
 url <- "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/tym/tyonv/kk/statfin_tyonv_pxt_1001.px"
 
 query <-
