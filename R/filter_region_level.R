@@ -8,6 +8,8 @@
 #'
 #' Kunnille ei tule koodeja suoraan pxwebin aineistosta
 #'
+#'
+#'
 #' @param data data.frame, contains the regional data
 #' @param region character, the desired region.
 #' @return data.frame
@@ -31,7 +33,7 @@ filter_region_level <- function(data, region) {
                      maakunta_name = factor(statfitools::extract_name(Alue))) %>%
               select(-Alue)
   } else if (region %in% c("koko maa", "KOKO MAA", "SSS")) {
-      output <- filter(data, grepl("KOKO MAA", Alue)) %>%
+      output <- filter(data, grepl("KOKO MAA", Alue) | grepl("SSS", Alue)) %>%
                 select(-Alue)
   } else {stop("Input region not applicable.")}
   output
