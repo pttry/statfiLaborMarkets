@@ -30,7 +30,7 @@ filter_region_level <- function(data, region) {
               mutate(maakunta_code = factor(statfitools::extract_code(Alue, numbers_as_numeric = FALSE)),
                      maakunta_name = factor(statfitools::extract_name(Alue))) %>%
               select(-Alue)
-  } else if (region %in% c("koko maa", "KOKO MAA")) {
+  } else if (region %in% c("koko maa", "KOKO MAA", "SSS")) {
       output <- filter(data, grepl("KOKO MAA", Alue)) %>%
                 select(-Alue)
   } else {stop("Input region not applicable.")}
