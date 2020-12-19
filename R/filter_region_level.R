@@ -13,7 +13,7 @@
 #' @return data.frame
 #' @export
 
-filter_region <- function(data, region) {
+filter_region_level <- function(data, region) {
 
   if(region == "kunta") {
     output <- filter(data,!grepl("MK", Alue) & !grepl("SK", Alue) &
