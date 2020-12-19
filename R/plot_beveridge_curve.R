@@ -8,7 +8,9 @@
 #' @return
 #' @export
 #'
-#' @import statfitools
+#' @import statfitools,
+#'         ggptt,
+#'         tidyverse
 #'
 #' @examples
 plot_beveridge_curve <- function(df = data_kokomaa_1001,
