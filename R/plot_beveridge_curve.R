@@ -11,7 +11,7 @@
 #' @import statfitools
 #'
 #' @examples
-plot_beveridge_curve <- function(df,
+plot_beveridge_curve <- function(df = data_kokomaa_1001,
                                  series_type = "trend",
                                  number_type = "relative",
                                  colors = c("#00627D", "#00713D")) {
