@@ -32,7 +32,7 @@ plot_beveridge_curve <- function(df = data_kokomaa_1001,
 
   df$vuosi_label = sapply(df$time, function(t) {ifelse(grepl("01-01", t), format(t, "%Y"), "")})
 
-  df %>% ggplot(aes(x = x, y = y, label = vuosi_label)) +
+  ggplot(df, aes(x = x, y = y, label = vuosi_label)) +
     geom_point(size = 1, color = colors[1]) +
     geom_path(size = 1, color = colors[2]) +
     geom_text(color = "black") +
