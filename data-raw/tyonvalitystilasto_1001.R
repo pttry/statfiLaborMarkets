@@ -23,10 +23,10 @@ data <- data %>%
          Kuukausi = substring(Kuukausi, 5)) %>%
   statfitools::clean_times(sub_year_col = "Kuukausi")
 
-data_kunta_1001 <- filter_region(data, "kunta")
-data_seutukunta_1001 <- filter_region(data, "seutukunta")
-data_maakunta_1001 <- filter_region(data, "maakunta")
-data_kokomaa_1001 <- filter_region(data, "koko maa")
+data_kunta_1001 <- filter_region_level(data, "kunta")
+data_seutukunta_1001 <- filter_region_level(data, "seutukunta")
+data_maakunta_1001 <- filter_region_level(data, "maakunta")
+data_kokomaa_1001 <- filter_region_level(data, "koko maa")
 
 usethis::use_data(data_kunta_1001, data_seutukunta_1001, data_maakunta_1001, data_kokomaa_1001,
                   overwrite = TRUE)

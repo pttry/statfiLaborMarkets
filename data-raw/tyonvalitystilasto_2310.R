@@ -23,10 +23,10 @@ data <- data %>%
 
 data <- data %>% dplyr::select(-Ammattiryhma)
 
-data_kunta_2310 <- filter_region(data, "kunta")
-data_seutukunta_2310 <- filter_region(data, "seutukunta")
-data_maakunta_2310 <- filter_region(data, "maakunta")
-data_kokomaa_2310 <- filter_region(data, "koko maa")
+data_kunta_2310 <- filter_region_level(data, "kunta")
+data_seutukunta_2310 <- filter_region_level(data, "seutukunta")
+data_maakunta_2310 <- filter_region_level(data, "maakunta")
+data_kokomaa_2310 <- filter_region_level(data, "koko maa")
 
 usethis::use_data(data_kunta_2310, data_seutukunta_2310, data_maakunta_2310, data_kokomaa_2310,
                   overwrite = TRUE)
