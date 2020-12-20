@@ -36,6 +36,6 @@ plot_beveridge_curve <- function(df = data_kokomaa_1001,
     geom_point(size = 1, color = colors[1]) +
     geom_path(size = 1, color = colors[2]) +
     geom_text(color = "black") +
-    labs(y = ifelse(number_type == "relative", "Vakanssiaste", "Avoimet tyopaikat"),
-         x = ifelse(number_type == "relative", "Työttömyysaste", "Työttömat"))
+    labs(y = ifelse(number_type == "relative", "Vakanssiaste", "Avoimet työpaikat"),
+         x = ifelse(number_type == "relative", "Työttömyysaste", "Työttömät"))
 }
