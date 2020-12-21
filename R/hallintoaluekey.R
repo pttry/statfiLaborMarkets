@@ -14,7 +14,8 @@ hallintoaluekey <- function(region = "kunta",
                             codes = FALSE,
                             year = format(Sys.Date(), "%Y")) {
 
-  alueet <- factor(c("kunta", "seutukunta", "maakunta", "suuralue"), levels = c("kunta", "seutukunta", "maakunta", "suuralue"))
+  alueet <- factor(c("kunta", "seutukunta", "maakunta", "suuralue"),
+                   levels = c("kunta", "seutukunta", "maakunta", "suuralue"))
   hallintoalueet <- c("seutukunta", "maakunta", "suuralue")
   source_region = "kunta"
   hallintoaluekey <- data.frame()
@@ -47,10 +48,10 @@ hallintoaluekey <- function(region = "kunta",
 
   if(codes) {
     output <- dplyr::select(hallintoaluekey, contains("code"))
-    names(output) <- paste(c("kunta", hallintoalueet), "koodi", sep = "_")
+    names(output) <- paste(c("kunta", hallintoalueet), "code", sep = "_")
   } else {
     output <- dplyr::select(hallintoaluekey, contains("name"))
-    names(output) <- c("kunta", hallintoalueet)
+    names(output) <- paste(c("kunta", hallintoalueet), "name", sep = "_")
   }
   output <- output[,as.double(alueet[alueet == region]) <= as.double(alueet)]
   output[!duplicated(output),]
