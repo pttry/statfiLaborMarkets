@@ -19,11 +19,11 @@ plot_beveridge_curve <- function(df = data_kokomaa_1001,
                                  colors = c("#00627D", "#00713D")) {
 
   if(number_type == "relative") {
-    df$x <- df$Tyottomat / df$Tyovoima
-    df$y <- df$Avoimet_tyopaikat / (df$Avoimet_tyopaikat + df$Tyovoima - df$Tyottomat)
+    df$x <- df$tyottomat / df$tyovoima
+    df$y <- df$avoimet_tyopaikat / (df$avoimet_tyopaikat + df$tyovoima - df$tyottomat)
   } else {
-    df$x <- df$Tyottomat
-    df$y <- df$Avoimet_tyopaikat
+    df$x <- df$tyottomat
+    df$y <- df$avoimet_tyopaikat
   }
   if(series_type %in% c("trend", "sa")) {
     df$y <- do.call(paste(series_type, "series", sep = "_"), list(x = df$y, time = df$time))

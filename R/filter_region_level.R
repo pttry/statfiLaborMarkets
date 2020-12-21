@@ -18,23 +18,23 @@
 filter_region_level <- function(data, region) {
 
   if(region == "kunta") {
-    output <- filter(data,!grepl("MK", Alue) & !grepl("SK", Alue) &
-                       !grepl("ELY", Alue) & !grepl("KOKO", Alue)) %>%
-      mutate(kunta_name = Alue) %>%
-      select(-Alue)
+    output <- filter(data,!grepl("MK", alue) & !grepl("SK", alue) &
+                       !grepl("ELY", alue) & !grepl("KOKO", alue)) %>%
+      mutate(kunta_name = alue) %>%
+      select(-alue)
   } else if (region == "seutukunta") {
-    output <- filter(data, grepl("SK", Alue))  %>%
-              mutate(seutukunta_code = factor(statfitools::extract_code(Alue, numbers_as_numeric = FALSE)),
-                     seutukunta_name = factor(statfitools::extract_name(Alue))) %>%
-              select(-Alue)
+    output <- filter(data, grepl("SK", alue))  %>%
+              mutate(seutukunta_code = factor(statfitools::extract_code(alue, numbers_as_numeric = FALSE)),
+                     seutukunta_name = factor(statfitools::extract_name(alue))) %>%
+              select(-alue)
   } else if (region == "maakunta") {
-    output <- filter(data, grepl("MK", Alue)) %>%
-              mutate(maakunta_code = factor(statfitools::extract_code(Alue, numbers_as_numeric = FALSE)),
-                     maakunta_name = factor(statfitools::extract_name(Alue))) %>%
-              select(-Alue)
+    output <- filter(data, grepl("MK", alue)) %>%
+              mutate(maakunta_code = factor(statfitools::extract_code(alue, numbers_as_numeric = FALSE)),
+                     maakunta_name = factor(statfitools::extract_name(alue))) %>%
+              select(-alue)
   } else if (region %in% c("koko maa", "KOKO MAA", "SSS")) {
-      output <- filter(data, grepl("KOKO MAA", Alue) | grepl("SSS", Alue)) %>%
-                select(-Alue)
+      output <- filter(data, grepl("KOKO MAA", alue) | grepl("SSS", alue)) %>%
+                select(-alue)
   } else {stop("Input region not applicable.")}
   output
 }
