@@ -1,4 +1,12 @@
-#' Filters the desired region from the dataset
+#' Filters the desired region from the dataset.
+#'
+#' Tilastokeskuksen taulukoissa on usein tietoja eri aggregointitasolla. Koska suurimmalla
+#' aggregointitasolla on vähiten suojattuja tietoja (vähemmän kuin 5 havaintoa) tulisi anlyysissä
+#' käyttää aina suurinta mahdollista aggregointitasoa siten että, jos haluaa aggregoida alueita,
+#' joita pystyy aggregoimaan seutukunnista, ei tulisi aggregoida kuntatiedoista, vaan seutukunta
+#' tiedoista. Jos aggregointiin voi käyttää maakuntia, vielä parempi.
+#'
+#' Onko tämä koodi yleistettävissä muihin pxwebin taulukoihin?
 #'
 #' @param data data.frame, contains the regional data
 #' @param region character, the desired region.
