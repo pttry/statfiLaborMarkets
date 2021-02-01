@@ -1,5 +1,7 @@
 ## code to prepare `data_kunta_1001`, 'data_seutukunta_1001', data_maakunta_1001', 'data_kokomaa_1001' dataset goes here
 
+# kuntadataan tulisi lisätä kooditä käyttäen hallintoaluekey-funktiota
+
 library(statfiLaborMarkets)
 library(statfitools)
 library(tidyverse)
@@ -14,19 +16,20 @@ query <-
 
 # Hae data
 
-pxd <- pxweb::pxweb_get(url, query)
-data <- as.data.frame(pxd)
+data <- as.data.frame(pxweb::pxweb_get(url, query))
+
+# Clean data
 
 data <- data %>%
-  statfitools::clean_names() %>%
-  mutate(Vuosi = substring(Kuukausi, 1,4),
-         Kuukausi = substring(Kuukausi, 5)) %>%
-  statfitools::clean_times(sub_year_col = "Kuukausi")
+  statfitools::clean_times2() %>%
+  statfitools::clean_names()
 
-data_kunta_1001 <- filter_region(data, "kunta")
-data_seutukunta_1001 <- filter_region(data, "seutukunta")
-data_maakunta_1001 <- filter_region(data, "maakunta")
-data_kokomaa_1001 <- filter_region(data, "koko maa")
+# Filter different regional level data
+
+data_kunta_1001 <- filter_region_level(data, "kunta")
+data_seutukunta_1001 <- filter_region_level(data, "seutukunta")
+data_maakunta_1001 <- filter_region_level(data, "maakunta")
+data_kokomaa_1001 <- filter_region_level(data, "koko maa")
 
 usethis::use_data(data_kunta_1001, data_seutukunta_1001, data_maakunta_1001, data_kokomaa_1001,
                   overwrite = TRUE)

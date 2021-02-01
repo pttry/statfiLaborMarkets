@@ -5,7 +5,7 @@
 \title{Plots a Beveridge curve}
 \usage{
 plot_beveridge_curve(
-  df,
+  df = data_kokomaa_1001,
   series_type = "trend",
   number_type = "relative",
   colors = c("#00627D", "#00713D")
