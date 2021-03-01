@@ -9,7 +9,7 @@ randomize_na <- function(df, from = 1:4) {
   num_cols <- names(df)[as.vector(sapply(df, class)) == "numeric"]
   for(col in num_cols) {
     new_values <- sample(from, sum(is.na(df[col])), replace = TRUE)
-    df[col][,1][is.na(df[col][,1])] <- new_values
+    df[[col]][is.na(df[[col]])] <- new_values
   }
   df
 }
